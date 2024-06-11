@@ -1,4 +1,4 @@
-package worker
+package actors
 
 import (
 	"bom-import-xls/internal/domain"

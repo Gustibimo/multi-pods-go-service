@@ -39,7 +39,7 @@ func runWorker() func(cmd *cobra.Command, args []string) {
 			worker.Stop()
 			worker.Wait()
 		case <-done:
-			fmt.Println("Worker finished its task.")
+			fmt.Println("worker finished its task.")
 		}
 
 	}

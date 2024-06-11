@@ -19,11 +19,11 @@ func main() {
 
 	// time to parse the file
 	//start := time.Now()
-	//consumer, err := worker.BomFileParsingActor()
+	//worker, err := worker.BomFileParsingActor()
 	//if err != nil {
 	//	fmt.Println("Error parsing file: ", err)
 	//}
-	//fmt.Println(consumer)
+	//fmt.Println(worker)
 
 	//r, err := worker.ParseBomFile()
 	//if err != nil {
