@@ -12,7 +12,7 @@ func Publish[T any](ctx context.Context, message T, topic string) {
 	//sarama.Logger = log.New(os.Stderr, "[KAFKA] ", log.LstdFlags)
 
 	kafkaConn := InitConfig()
-	producer, err := sarama.NewSyncProducer([]string{"localhost:9092"}, kafkaConn.Configuration)
+	producer, err := sarama.NewSyncProducer(kafkaConn.BootstrapServers, kafkaConn.Configuration)
 	if err != nil {
 		fmt.Println("Error producer: ", err)
 	}

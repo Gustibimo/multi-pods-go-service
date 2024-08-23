@@ -8,7 +8,7 @@ WORKDIR /app
 RUN #apk add --no-cache git
 
 # Copy go mod and sum files
-COPY go.mod go.sum ./
+COPY ../go.mod go.sum ./
 
 # Download dependencies (add verbose output for debugging)
 RUN go mod download -x
@@ -19,7 +19,6 @@ COPY . .
 ENV GOCACHE=/target/.cache/go-build
 # Build the Go application
 RUN  go build -o bom-import-backend
-
 # Stage 2: Create the runtime container
 FROM alpine:latest
 
@@ -28,9 +27,10 @@ WORKDIR /app
 
 # Copy the built Go application from the builder stage
 COPY --from=builder /app/bom-import-backend .
+COPY bom.xlsx .
 
 # Expose the application port
 EXPOSE 8080
 
 # Command to run the application
-CMD ["./bom-import-backend", "cli"]
+CMD ["./bom-import-backend", "http-server"]

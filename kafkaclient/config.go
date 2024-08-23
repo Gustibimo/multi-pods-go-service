@@ -25,7 +25,7 @@ type Config struct {
 
 func InitConfig() *Config {
 	Brokers := []string{"localhost:9092"}
-	groupID := "bom-import-xls"
+	groupID := "scm-production-worker"
 	return &Config{
 		BootstrapServers: Brokers,
 		GroupID:          groupID,

@@ -1,0 +1,26 @@
+# app-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-worker
+  labels:
+    app: {{ .Release.Name }}-worker
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-worker
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-worker
+    spec:
+      containers:
+        - name: {{ .Release.Name }}-worker
+          image: "{{ .Values.server.image.repository }}:{{ .Values.server.image.tag }}"
+          ports:
+            - containerPort: {{ .Values.server.port }}
+          command: {{ .Values.server.command }}
+          args: {{ .Values.server.args }}4
+      imagePullSecrets:
+        - name: local-registry-secret

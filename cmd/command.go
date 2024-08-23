@@ -18,10 +18,10 @@ var rootCmd = &cobra.Command{
 func init() {
 	rootCmd.AddCommand(workerCmd)
 	rootCmd.AddCommand(cliCmd)
+	rootCmd.AddCommand(httpServerCmd)
 }
 
 func Execute() {
-	rootCmd.AddCommand(workerCmd)
 	err := rootCmd.Execute()
 	if err != nil {
 		fmt.Println(err)
