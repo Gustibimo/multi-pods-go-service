@@ -1,0 +1,13 @@
+provider "null" {
+  version = "~> 3.1"
+}
+
+resource "null_resource" "docker_build_push" {
+  provisioner "local-exec" {
+    command = <<-EOT
+      docker build -t gstbimo/bom-import-backend:latest . &&
+      docker push gstbimo/bom-import-backend:latest
+    EOT
+  }
+}
+

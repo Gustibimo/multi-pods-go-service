@@ -1,0 +1,14 @@
+# values.yaml
+server:
+  image:
+    repository: gstbimo/scm
+    tag: 0.1.8a
+  port: 8080
+  command: ["./bom-import-backend"]
+  args: ["worker"]
+
+#worker:
+#    image:
+#        repository: gstbimo/bom-import-worker
+#        tag: 0.1
+#    port: 8081
