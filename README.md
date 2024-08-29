@@ -1,0 +1,3 @@
+- docker build -t gstbimo/scm:0.1.8b -f docker/Dockerfile .
+- docker push gstbimo/scm:0.1.8b
+- helm upgrade bom-import-backend deploy

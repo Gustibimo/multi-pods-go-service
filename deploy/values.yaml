@@ -2,7 +2,7 @@
 server:
   image:
     repository: gstbimo/scm
-    tag: 0.1.8a
+    tag: 0.1.8b
   port: 8080
   command: ["./bom-import-backend"]
   args: ["worker"]

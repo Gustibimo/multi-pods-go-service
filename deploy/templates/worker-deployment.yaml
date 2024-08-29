@@ -21,6 +21,6 @@ spec:
           ports:
             - containerPort: {{ .Values.server.port }}
           command: {{ .Values.server.command }}
-          args: {{ .Values.server.args }}4
+          args: {{ .Values.server.args }}
       imagePullSecrets:
         - name: local-registry-secret
